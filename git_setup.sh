@@ -1,14 +1,9 @@
 #!/bin/bash
 cd "$(dirname "$0")"
-echo "기존 .git 폴더 제거 중..."
-rm -rf .git
-echo "git 초기화 중..."
-git init
-git config user.email "gjayoh@gmail.com"
-git config user.name "jaehwan"
-git branch -m main
-git add .
-git commit -m "ETF init"
+echo "GitHub 저장소 연결 중..."
+git remote add origin https://github.com/Jayoh82/etf-compare.git 2>/dev/null || git remote set-url origin https://github.com/Jayoh82/etf-compare.git
+echo "push 중... (GitHub 로그인 창이 뜰 수 있습니다)"
+git push -f origin main
 echo ""
-echo "완료! 결과를 확인하세요."
+echo "완료!"
 read -p "Enter 키를 누르면 닫힙니다..."
